@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.13",
+        "easycorp/easyadmin-bundle": "^4",
         "symfony/console": "^6.4",
         "symfony/dotenv": "^6.4",
         "symfony/flex": "^2.4",
@@ -23,6 +24,8 @@
         "symfony/uid": "^6.4",
         "symfony/validator": "^6.4",
         "symfony/yaml": "^6.4",
+        "twig/extra-bundle": "^3.8",
+        "twig/intl-extra": "^3",
         "webmozart/assert": "^1.11"
     },
     "require-dev": {
