@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class CommentCrudController extends AbstractCrudController
 {
@@ -48,15 +49,18 @@ class CommentCrudController extends AbstractCrudController
         yield TextareaField::new('text')
                 ->hideOnIndex()
             ;
-        yield TextField::new('photoFilename')
-                ->onlyOnIndex()
-            ;
+        yield ImageField::new('photoFilename')
+                ->setBasePath('/uploads/photos')
+                ->setLabel('Photo')
+                ->onlyOnIndex();
 
-        $createdAt = DateTimeField::new('createdAT')->setFormTypeOptions([
+        $createdAT = DateTimeField::new('createdAT')->setFormTypeOptions([
                 'years' => range(date('Y'), date('Y') + 5),
                 'widget' => 'single_text',
             ]);
-        if (Crud::PAGE_EDIT === $pageName) yield $createdAt->setFormTypeOption('disabled', true);
+        if (Crud::PAGE_EDIT === $pageName) {
+            yield $createdAT->setFormTypeOption('disabled', true);
+        }
 
      }
 }
